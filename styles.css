@@ -1,0 +1,30 @@
+.game__score-pad {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 300px;
+  text-align: center;
+}
+
+.game__score-pad td, .game__score-pad th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.game__score-pad tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.game__score-pad tr:hover {
+  background-color: #ddd;
+}
+
+.game__score-pad th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #1880ad;
+  color: white;
+}
+
+td:first-child {
+  width: 30px;
+}
