@@ -1,9 +1,15 @@
 const dices = document.querySelectorAll(".game__dices img")
 const checkboxes = document.querySelectorAll(".check")
+const pointsUpper = document.querySelectorAll(".upper-section-points")
+const choicesTotalUpper = document.querySelector(".upper-section-total")
+const upperBonus = document.querySelector(".upper-section-bonus")
+const pointsLower = document.querySelectorAll(".lower-section-points")
+const choicesTotalLower = document.querySelector(".lower-section-total")
 
 let rolledDices = [];
 let rollsLeft = 3;
 let sum = 0;
+
 
 
 const rollDice = (dice) => {
@@ -59,7 +65,10 @@ const rollAllDices = () => {
             rollDice(dice);
         }
     });
-    rollsLeft--;
+    if (rollsLeft > 0){
+        rollsLeft--;
+    }
+    document.querySelector(".game__rolls").innerHTML = `Rolls left: ${rollsLeft}`
 }
 
 
@@ -85,33 +94,25 @@ const checkSum = (number) => {
     })
 }
 
-const countInArray = (value) => {
+const sameInArray = (value) => {
     return rolledDices.reduce((a, b) => a + (b === value), 0);
-  }
+}
 
 const checkAKind = (number) => {
     checkDices()
     rolledDices.forEach(dice => {
-        console.log(countInArray(rolledDices, dice));
-        if (countInArray(dice) >= number){
+        if (sameInArray(dice) >= number){
             sum = rolledDices.reduce((a, b) => a + b);
         };
     })
 }
 
-const checkYahtzee = () => {
-    checkDices();
-    if (countInArray(rolledDices[0]) == 5){
-        sum = 50;
-    }
-}
-
-const checkLargeStraight = () => {
-    checkDices();
-    arr = [1,2,3,4,5]
-    arr2 = [2,3,4,5,6]
-    if(arr.every(dice => rolledDices.includes(dice)) || arr2.every(dice => rolledDices.includes(dice))){
-        sum = 40;
+const checkFull = () => {
+    checkDices()
+    let same = [];
+    rolledDices.forEach(dice => same.push(sameInArray(dice)));
+    if (same.includes(2) && same.includes(3)){
+        sum = 25;
     }
 }
 
@@ -126,6 +127,26 @@ const checkSmallStraight = () => {
     }
 }
 
+const checkLargeStraight = () => {
+    checkDices();
+    arr = [1,2,3,4,5]
+    arr2 = [2,3,4,5,6]
+    if(arr.every(dice => rolledDices.includes(dice)) || arr2.every(dice => rolledDices.includes(dice))){
+        sum = 40;
+    }
+}
+
+const checkYahtzee = () => {
+    checkDices();
+    if (sameInArray(rolledDices[0]) == 5){
+        sum = 50;
+    }
+}
+
+const checkChance = () => {
+    checkDices();
+    sum = rolledDices.reduce((a, b) => a + b);
+}
 
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener("change", e => {
@@ -155,6 +176,9 @@ checkboxes.forEach(checkbox => {
             case "fourAKind":
                 checkAKind(4);
                 break;
+            case "fullHouse":
+                checkFull();
+                break;
             case "smStraight":
                 checkSmallStraight();
                 break;
@@ -164,8 +188,58 @@ checkboxes.forEach(checkbox => {
             case "yahtzee":
                 checkYahtzee();
                 break;
+            case "chance":
+                checkChance();
+                break;
                 
         }
-        e.target.parentNode.parentNode.lastElementChild.textContent = sum;
+        const td = e.target.parentNode
+        td.parentNode.lastElementChild.textContent = sum;
+        td.nextElementSibling.classList.add("crossed-out");
+        e.target.disabled = true;
+        grandTotal();
+        rollsLeft = 3;
+
+        dices.forEach(dice => {
+            dice.classList.remove("locked");
+        })
+        rollAllDices();
     });
 })
+
+const totalFromChoices = () => {
+    let upperTotal = 0;
+    pointsUpper.forEach(score => {
+        upperTotal += Number(score.textContent);
+    });
+    choicesTotalUpper.textContent = upperTotal;
+
+    let lowerTotal = 0;
+    pointsLower.forEach(score => {
+        lowerTotal += Number(score.textContent);
+    });
+    choicesTotalLower.textContent = lowerTotal;
+}
+
+const bonus = () => {
+    if(Number(choicesTotalUpper.textContent) >= 63) {
+        upperBonus.textContent = 35;
+    } else {
+        upperBonus.textContent = 0;
+    }
+}
+
+const totalUpper = () => {
+    bonus();
+    const total = Number(choicesTotalUpper.textContent) + Number(upperBonus.textContent)
+    document.querySelector(".total-score-upper").textContent = total;
+    return total;
+}
+
+const grandTotal = () => {
+    totalFromChoices();
+    totalUpper();
+    const totalUp = totalUpper()
+    const totalLow = Number(choicesTotalLower.textContent);
+    document.querySelector(".grand-score").textContent = totalUp + totalLow;
+}

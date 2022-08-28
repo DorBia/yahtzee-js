@@ -14,13 +14,13 @@
     </div>
 
     <div class="game">
-        <h1 class="game__score"></h1>
+        <h1 class="game__rolls"></h1>
         <div class="game__dices">
-            <img src="./images/dice-1.svg" alt="dice1" height="70px" id="dice1">
-            <img src="./images/dice-1.svg" alt="dice2" height="70px" id="dice2">
-            <img src="./images/dice-1.svg" alt="dice3" height="70px" id="dice3">
-            <img src="./images/dice-1.svg" alt="dice4" height="70px" id="dice4">
-            <img src="./images/dice-1.svg" alt="dice5" height="70px" id="dice5">
+            <img src="./images/dice-3.svg" alt="dice1" height="70px" id="dice1">
+            <img src="./images/dice-3.svg" alt="dice2" height="70px" id="dice2">
+            <img src="./images/dice-3.svg" alt="dice3" height="70px" id="dice3">
+            <img src="./images/dice-2.svg" alt="dice4" height="70px" id="dice4">
+            <img src="./images/dice-2.svg" alt="dice5" height="70px" id="dice5">
         </div>
         <div class="game__scoring">
             <table class="game__score-pad">
@@ -29,50 +29,50 @@
                   <th>Choice</th>
                   <th>Score</th>
                 </tr>
-                <tr class="aces">
-                    <td class="choice upper-section"><input type="checkbox" class="check" value="aces"></td>
-                    <td class="choice upper-section">Aces</td>
-                    <td class="choice upper-section points"></td>
+                <tr>
+                    <td><input type="checkbox" class="check" value="aces"></td>
+                    <td>Aces</td>
+                    <td class="upper-section-points"></td>
                 </tr>
                 <tr>
-                    <td class="choice upper-section"><input type="checkbox" class="check" value="twos"></td>
-                    <td class="choice upper-section">Twos</td>
-                    <td class="choice upper-section points"></td>
+                    <td><input type="checkbox" class="check" value="twos"></td>
+                    <td>Twos</td>
+                    <td class="upper-section-points"></td>
                 </tr>
                 <tr>
-                    <td class="choice upper-section"><input type="checkbox" class="check" value="threes"></td>
-                    <td class="choice upper-section">Threes</td>
-                    <td class="choice upper-section points"></td>
+                    <td><input type="checkbox" class="check" value="threes"></td>
+                    <td>Threes</td>
+                    <td class="upper-section-points"></td>
                 </tr>
                 <tr>
-                    <td class="choice upper-section"><input type="checkbox" class="check" value="fours"></td>
-                    <td class="choice upper-section">Fours</td>
-                    <td class="choice upper-section points"></td>
+                    <td><input type="checkbox" class="check" value="fours"></td>
+                    <td>Fours</td>
+                    <td class="upper-section-points"></td>
                 </tr>
                 <tr>
-                    <td class="choice upper-section"><input type="checkbox" class="check" value="fives"></td>
-                    <td class="choice upper-section">Fives</td>
-                    <td class="choice upper-section points"></td>
+                    <td><input type="checkbox" class="check" value="fives"></td>
+                    <td>Fives</td>
+                    <td class="upper-section-points"></td>
                 </tr>
                 <tr>
-                    <td class="choice upper-section"><input type="checkbox" class="check" value="sixes"></td>
-                    <td class="choice upper-section">Sixes</td>
-                    <td class="choice upper-section points"></td>
+                    <td><input type="checkbox" class="check" value="sixes"></td>
+                    <td>Sixes</td>
+                    <td class="upper-section-points"></td>
                 </tr>
                 <tr>
-                    <td class="upper-section total"> </td>
-                    <td class="upper-section total">Total</td>
-                    <td class="upper-section total points"></td>
+                    <td></td>
+                    <td>Total</td>
+                    <td class="upper-section-total"></td>
                 </tr>
                 <tr>
-                    <td class="upper-section bonus"> </td>
-                    <td class="upper-section bonus">Bonus</td>
-                    <td class="upper-section bonus points"></td>
+                    <td></td>
+                    <td>Bonus</td>
+                    <td class="upper-section-bonus points"></td>
                 </tr>
                 <tr>
-                    <td class="upper-section total-score"> </td>
-                    <td class="upper-section total-score">Total Score</td>
-                    <td class="upper-section total-score"></td>
+                    <td></td>
+                    <td>Total Score</td>
+                    <td class="upper-section total-score-upper"></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -80,48 +80,48 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td class="choice"><input type="checkbox" class="check" value="threeAKind"></td>
-                    <td class="choice">3 of a kind</td>
-                    <td class="choice points"></td>
+                    <td><input type="checkbox" class="check" value="threeAKind"></td>
+                    <td>3 of a kind</td>
+                    <td class="lower-section-points"></td>
                 </tr>
                 <tr>
-                    <td class="choice"><input type="checkbox" class="check" value="fourAKind"></td>
-                    <td class="choice">4 of a kind</td>
-                    <td class="choice points"></td>
+                    <td><input type="checkbox" class="check" value="fourAKind"></td>
+                    <td>4 of a kind</td>
+                    <td class="lower-section-points"></td>
                 </tr>
                 <tr>
-                    <td class="choice"><input type="checkbox" class="check"></td>
-                    <td class="choice">Full House</td>
-                    <td class="choice points"></td>
+                    <td><input type="checkbox" class="check" value="fullHouse"></td>
+                    <td>Full House</td>
+                    <td class="lower-section-points"></td>
                 </tr>
                 <tr>
-                    <td class="choice"><input type="checkbox" class="check" value="smStraight"></td>
-                    <td class="choice">Sm. Straight</td>
-                    <td class="choice points"></td>
+                    <td><input type="checkbox" class="check" value="smStraight"></td>
+                    <td>Sm. Straight</td>
+                    <td class="lower-section-points"></td>
                 </tr>
                 <tr>
-                    <td class="choice"><input type="checkbox" class="check" value="lgStraight"></td>
-                    <td class="choice">Lg. Straight</td>
-                    <td class="choice points"></td>
+                    <td><input type="checkbox" class="check" value="lgStraight"></td>
+                    <td>Lg. Straight</td>
+                    <td class="lower-section-points"></td>
                 </tr>
                 <tr>
-                    <td class="choice"><input type="checkbox" class="check" value="yahtzee"></td>
-                    <td class="choice">YAHTZEE</td>
-                    <td class="choice points"></td>
+                    <td><input type="checkbox" class="check" value="yahtzee"></td>
+                    <td>YAHTZEE</td>
+                    <td class="lower-section-points"></td>
                 </tr>
                 <tr>
-                    <td class= "choice"> </td>
-                    <td class= "choice">Chance</td>
-                    <td class= "choice points"></td>
+                    <td><input type="checkbox" class="check" value="chance"></td>
+                    <td>Chance</td>
+                    <td class="lower-section-points"></td>
                 </tr>
                 <tr>
-                    <td class="total-score"> </td>
-                    <td class="total-score">Total</td>
-                    <td class="total-score points"></td>
+                    <td> </td>
+                    <td>Total</td>
+                    <td class="lower-section-total"></td>
                 </tr>
                 <tr>
-                    <td class="grand-score"> </td>
-                    <td class="grand-score">Grand Total</td>
+                    <td> </td>
+                    <td>Grand Total</td>
                     <td class="grand-score"></td>
                 </tr>
         </div>
