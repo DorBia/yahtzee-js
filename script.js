@@ -193,7 +193,7 @@ checkboxes.forEach(checkbox => {
                 break;
                 
         }
-        const td = e.target.parentNode
+        const td = e.target.parentNode.parentNode
         td.parentNode.lastElementChild.textContent = sum;
         td.nextElementSibling.classList.add("crossed-out");
         e.target.disabled = true;

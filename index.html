@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div class="start" hidden>
+    <div class="start">
         <h2 class="start__heading">Welcome to Yahtzee</h2>
         <button class="start__game">Start</button>
     </div>
 
-    <div class="game">
+    <div class="game hidden">
         <h3 class="game__rolls"></h3>
         <div class="game__dices">
             <img src="./images/dice-3.svg" alt="dice1" id="dice1">
@@ -30,39 +30,51 @@
                   <th>Score</th>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="check" value="aces"></td>
+                    <td><label><input type='checkbox' class="check" value="aces">
+                        <span></span>
+                    </label></td>
                     <td>Aces</td>
-                    <td class="upper-section-points"></td>
+                    <td class="upper-section-points points"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="check" value="twos"></td>
+                    <td><label><input type='checkbox' class="check" value="twos">
+                        <span></span>
+                    </label></td>
                     <td>Twos</td>
-                    <td class="upper-section-points"></td>
+                    <td class="upper-section-points points"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="check" value="threes"></td>
+                    <td><label><input type='checkbox' class="check" value="threes">
+                        <span></span>
+                    </label></td>
                     <td>Threes</td>
-                    <td class="upper-section-points"></td>
+                    <td class="upper-section-points points"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="check" value="fours"></td>
+                    <td><label><input type='checkbox' class="check" value="fours">
+                        <span></span>
+                    </label></td>
                     <td>Fours</td>
-                    <td class="upper-section-points"></td>
+                    <td class="upper-section-points points"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="check" value="fives"></td>
+                    <td><label><input type='checkbox' class="check" value="fives">
+                        <span></span>
+                    </label></td>
                     <td>Fives</td>
-                    <td class="upper-section-points"></td>
+                    <td class="upper-section-points points"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="check" value="sixes"></td>
+                    <td><label><input type='checkbox' class="check" value="sixes">
+                        <span></span>
+                    </label></td>
                     <td>Sixes</td>
-                    <td class="upper-section-points"></td>
+                    <td class="upper-section-points points"></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>Total</td>
-                    <td class="upper-section-total"></td>
+                    <td class="upper-section-total points"></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -72,7 +84,7 @@
                 <tr>
                     <td></td>
                     <td>Total Score</td>
-                    <td class="upper-section total-score-upper"></td>
+                    <td class="upper-section total-score-upper points"></td>
                 </tr>
                 <tr>
                     <td class="empty"></td>
@@ -80,49 +92,63 @@
                     <td class="empty"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="check" value="threeAKind"></td>
+                    <td><label><input type='checkbox' class="check" value="threeAKind">
+                        <span></span>
+                    </label></td>
                     <td>3 of a kind</td>
-                    <td class="lower-section-points"></td>
+                    <td class="lower-section-points points"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="check" value="fourAKind"></td>
+                    <td><label><input type='checkbox' class="check" value="fourAKind">
+                        <span></span>
+                    </label></td>
                     <td>4 of a kind</td>
-                    <td class="lower-section-points"></td>
+                    <td class="lower-section-points points"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="check" value="fullHouse"></td>
+                    <td><label><input type='checkbox' class="check" value="fullHouse">
+                        <span></span>
+                    </label></td>
                     <td>Full House</td>
-                    <td class="lower-section-points"></td>
+                    <td class="lower-section-points points"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="check" value="smStraight"></td>
+                    <td><label><input type='checkbox' class="check" value="smStraight">
+                        <span></span>
+                    </label></td>
                     <td>Sm. Straight</td>
-                    <td class="lower-section-points"></td>
+                    <td class="lower-section-points points"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="check" value="lgStraight"></td>
+                    <td><label><input type='checkbox' class="check" value="lgStraight">
+                        <span></span>
+                    </label></td>
                     <td>Lg. Straight</td>
-                    <td class="lower-section-points"></td>
+                    <td class="lower-section-points points"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="check" value="yahtzee"></td>
+                    <td><label><input type='checkbox' class="check" value="yahtzee">
+                        <span></span>
+                    </label></td>
                     <td>YAHTZEE</td>
-                    <td class="lower-section-points"></td>
+                    <td class="lower-section-points points"></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" class="check" value="chance"></td>
+                    <td><label><input type='checkbox' class="check" value="chance">
+                        <span></span>
+                    </label></td>
                     <td>Chance</td>
-                    <td class="lower-section-points"></td>
+                    <td class="lower-section-points points"></td>
                 </tr>
                 <tr>
                     <td> </td>
                     <td>Total</td>
-                    <td class="lower-section-total"></td>
+                    <td class="lower-section-total points"></td>
                 </tr>
                 <tr>
                     <td> </td>
                     <td>Grand Total</td>
-                    <td class="grand-score"></td>
+                    <td class="grand-score points"></td>
                 </tr>
         </div>
     </div>

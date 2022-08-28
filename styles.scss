@@ -1,10 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Oooh+Baby&display=swap');
+
+
+$font-score: 'Oooh Baby', cursive;
+$font-second: 'Caveat', cursive;
 * {
     margin: 0;
     padding: 0;
 }
 
+body {
+    background-color: #fdfdfd;
+}
+
+.points {
+    font-family: $font-score;
+    font-size: 1.1rem;
+    color: #001193;
+}
+
 h3 {
-    margin: 15px 20px;
+    margin: 10px 20px;
 }
 
 .game__dices {
@@ -15,7 +30,7 @@ h3 {
 }
 
 img {
-    height: 55px;
+    height: 50px;
 }
 
 .game__score-pad {
@@ -28,9 +43,13 @@ img {
     border-bottom: 2px solid black;
 }
 
+tr:hover {
+    background-color: lightblue;
+}
+
 td {
     border-right: 2px solid black;
-    padding: 2px;
+    padding: 1px;
 }
 
 td:first-child {
@@ -41,7 +60,7 @@ td:first-child {
 
 .empty {
     border: none;
-    padding: 10px;
+    padding: 5px;
 }
 
 .empty:first-of-type {
@@ -49,13 +68,39 @@ td:first-child {
     border-left: none;
 }
 
-
-
 .locked {
-    border: 4px solid red;
-    border-radius: 20px;
+    border: 5px solid #001193;
+    border-radius: 17px;
 }
 
 .crossed-out {
-    text-decoration: line-through;
+    text-decoration: line-through #001193 3px;
+}
+
+input {
+  display: none; /* Hide the default checkbox */
+}
+
+/* Style the artificial checkbox */
+span {
+  height: 12px;
+  width: 12px;
+  border: 2px solid grey;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+}
+
+/* Style its checked state...with a ticked icon */
+[type=checkbox]:checked + span:before {
+  content: '\2714';
+  position: absolute;
+  font-size: 1.4rem;
+  color: #001193;
+  top: -7px;
+  left: 0;
+}
+
+.hidden {
+    display: none;
 }
