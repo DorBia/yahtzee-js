@@ -67,7 +67,6 @@ dices.forEach(dice => {
     // console.log(dice)
     dice.addEventListener("click", e => {
         e.target.classList.toggle("locked");
-        console.log(e.target)
     })
 })
 
@@ -83,7 +82,48 @@ const checkSum = (number) => {
         if(dice === number) {
             sum += dice;
         }
-})
+    })
+}
+
+const countInArray = (value) => {
+    return rolledDices.reduce((a, b) => a + (b === value), 0);
+  }
+
+const checkAKind = (number) => {
+    checkDices()
+    rolledDices.forEach(dice => {
+        console.log(countInArray(rolledDices, dice));
+        if (countInArray(dice) >= number){
+            sum = rolledDices.reduce((a, b) => a + b);
+        };
+    })
+}
+
+const checkYahtzee = () => {
+    checkDices();
+    if (countInArray(rolledDices[0]) == 5){
+        sum = 50;
+    }
+}
+
+const checkLargeStraight = () => {
+    checkDices();
+    arr = [1,2,3,4,5]
+    arr2 = [2,3,4,5,6]
+    if(arr.every(dice => rolledDices.includes(dice)) || arr2.every(dice => rolledDices.includes(dice))){
+        sum = 40;
+    }
+}
+
+const checkSmallStraight = () => {
+    checkDices();
+    arr = [1,2,3,4]
+    arr2 = [2,3,4,5]
+    arr3 = [3,4,5,6]
+
+    if(arr.every(dice => rolledDices.includes(dice)) || arr2.every(dice => rolledDices.includes(dice)) || arr3.every(dice => rolledDices.includes(dice))){
+        sum = 30;
+    }
 }
 
 
@@ -109,9 +149,23 @@ checkboxes.forEach(checkbox => {
             case "sixes":
                 checkSum(6)
                 break;
+            case "threeAKind":
+                checkAKind(3);
+                break;
+            case "fourAKind":
+                checkAKind(4);
+                break;
+            case "smStraight":
+                checkSmallStraight();
+                break;
+            case "lgStraight":
+                checkLargeStraight();
+                break;
+            case "yahtzee":
+                checkYahtzee();
+                break;
                 
         }
-        console.log(sum);
         e.target.parentNode.parentNode.lastElementChild.textContent = sum;
     });
 })
