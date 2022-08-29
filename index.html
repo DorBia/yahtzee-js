@@ -9,18 +9,22 @@
 </head>
 <body>
     <div class="start">
-        <h2 class="start__heading">Welcome to Yahtzee</h2>
+        <img src="./yahtzee.png" alt="background" id="background-img">
         <button class="start__game">Start</button>
     </div>
 
     <div class="game hidden">
-        <h3 class="game__rolls"></h3>
+        <section class="game__top">
+            <h3 class="game__rolls">Rolls left: 3</h3>
+            <button class="again">Play again</button>
+        </section>
+        
         <div class="game__dices">
-            <img src="./images/dice-3.svg" alt="dice1" id="dice1">
-            <img src="./images/dice-3.svg" alt="dice2" id="dice2">
-            <img src="./images/dice-3.svg" alt="dice3" id="dice3">
-            <img src="./images/dice-2.svg" alt="dice4" id="dice4">
-            <img src="./images/dice-2.svg" alt="dice5" id="dice5">
+            <img src="./images/dice-3.svg" alt="dice1">
+            <img src="./images/dice-3.svg" alt="dice2">
+            <img src="./images/dice-3.svg" alt="dice3">
+            <img src="./images/dice-2.svg" alt="dice4">
+            <img src="./images/dice-2.svg" alt="dice5">
         </div>
         <div class="game__scoring">
             <table class="game__score-pad">
@@ -87,9 +91,9 @@
                     <td class="upper-section total-score-upper points"></td>
                 </tr>
                 <tr>
-                    <td class="empty"></td>
-                    <td class="empty"></td>
-                    <td class="empty"></td>
+                    <td class="game__empty"></td>
+                    <td class="game__empty"></td>
+                    <td class="game__empty"></td>
                 </tr>
                 <tr>
                     <td><label><input type='checkbox' class="check" value="threeAKind">

@@ -9,7 +9,8 @@ $font-second: 'Caveat', cursive;
 }
 
 body {
-    background-color: #fdfdfd;
+    background-color: #f9f9f9;
+    font-family: sans-serif;
 }
 
 .points {
@@ -19,53 +20,77 @@ body {
 }
 
 h3 {
-    margin: 10px 20px;
+    margin: 5px;
 }
 
-.game__dices {
-    display: flex;
-    justify-content: space-around;
-    width: 95%;
-    margin: 15px auto;
-}
+.game {
+    &__score-pad {
+        width: 95vw;
+        text-align: center;
+        margin: auto;
+    }
 
-img {
-    height: 50px;
-}
+    &__dices {
+        display: flex;
+        justify-content: space-around;
+        width: 95%;
+        margin: 15px auto;
+    }
 
-.game__score-pad {
-    width: 95vw;
-    text-align: center;
-    margin: auto;
-}
-  
-.game__score-pad td, .game__score-pad th {
-    border-bottom: 2px solid black;
-}
+    &__score-pad td, 
+    &__score-pad th {
+        border-bottom: 2px solid black;
+    }
 
-tr:hover {
-    background-color: lightblue;
+    &__dices img {
+        height: 50px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__score-pad span {
+        height: 12px;
+        width: 12px;
+        border: 2px solid grey;
+        border-radius: 4px;
+        display: inline-block;
+        position: relative;
+    
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__empty {
+        border: none;
+        padding: 5px;
+    }
+    
+    &__empty:first-of-type {
+        border-right: none;
+        border-left: none;
+    }
+
+    &__top {
+        margin-top: 8px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
 }
 
 td {
     border-right: 2px solid black;
     padding: 1px;
-}
 
-td:first-child {
-    width: 10%;
-    border-right: 2px solid red;
-    border-left: 2px solid black;
-}
-
-.empty {
-    border: none;
-    padding: 5px;
-}
-
-.empty:first-of-type {
-    border-right: none;
-    border-left: none;
+    &:first-child {
+        width: 10%;
+        border-right: 2px solid red;
+        border-left: 2px solid black;
+    }
 }
 
 .locked {
@@ -78,29 +103,51 @@ td:first-child {
 }
 
 input {
-  display: none; /* Hide the default checkbox */
+    display: none;
 }
 
-/* Style the artificial checkbox */
-span {
-  height: 12px;
-  width: 12px;
-  border: 2px solid grey;
-  border-radius: 4px;
-  display: inline-block;
-  position: relative;
-}
-
-/* Style its checked state...with a ticked icon */
 [type=checkbox]:checked + span:before {
-  content: '\2714';
-  position: absolute;
-  font-size: 1.4rem;
-  color: #001193;
-  top: -7px;
-  left: 0;
+    content: '\2714';
+    position: absolute;
+    font-size: 1.4rem;
+    color: #001193;
+    top: -7px;
+    left: 0;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+#background-img{
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
+
+.start {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100vh;
+    max-height: 1080px;
+    width: 100vw;
+    max-width: 640px;
+    margin: auto;
+}
+
+.start__game {
+    position: absolute;
+    top: 70%;
+    left: 36%;
+    padding: 6% 12%;
+}
+
+.again {
+    padding: 8px 10px;
+    background-color: #9f0000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow:-1px 1px 5px #4f4f4f;
 }

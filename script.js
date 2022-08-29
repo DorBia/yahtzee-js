@@ -11,7 +11,6 @@ let rollsLeft = 3;
 let sum = 0;
 
 
-
 const rollDice = (dice) => {
     const rollNumber = Math.floor(Math.random() * 6) + 1;
     
@@ -70,7 +69,6 @@ const rollAllDices = () => {
     }
     document.querySelector(".game__rolls").innerHTML = `Rolls left: ${rollsLeft}`
 }
-
 
 dices.forEach(dice => {
     // console.log(dice)
@@ -243,3 +241,22 @@ const grandTotal = () => {
     const totalLow = Number(choicesTotalLower.textContent);
     document.querySelector(".grand-score").textContent = totalUp + totalLow;
 }
+
+document.querySelector(".again").addEventListener("click", () => {
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            checkbox.disabled = false;
+            checkbox.checked = false;
+        }
+    });
+    document.querySelectorAll(".points").forEach(p => p.innerHTML = "");
+    document.querySelectorAll("td").forEach(p => p.classList.remove("crossed-out"))
+    rollsLeft = 3;
+    rollAllDices();
+})
+
+document.querySelector(".start__game").addEventListener("click", () => {
+    document.querySelector(".game").classList.remove("hidden");
+    document.querySelector(".start").classList.add("hidden");
+    rollAllDices();
+})
