@@ -10,7 +10,8 @@ $font-second: 'Caveat', cursive;
 
 body {
     background-color: #f9f9f9;
-    font-family: sans-serif;
+    font-family: $font-score;
+    font-size: 1.1rem;
 }
 
 .points {
@@ -22,9 +23,15 @@ body {
 h3 {
     margin: 5px;
 }
+.game__dices img:hover,
+span:hover,
+button:hover {
+    cursor: pointer;
+}
 
 .game {
     &__score-pad {
+        height: 80vh;
         width: 95vw;
         text-align: center;
         margin: auto;
@@ -39,28 +46,21 @@ h3 {
 
     &__score-pad td, 
     &__score-pad th {
-        border-bottom: 2px solid black;
+        border-bottom: 1px solid grey;
     }
 
     &__dices img {
         height: 50px;
-
-        &:hover {
-            cursor: pointer;
-        }
     }
 
     &__score-pad span {
         height: 12px;
         width: 12px;
-        border: 2px solid grey;
+        border: 1px solid grey;
         border-radius: 4px;
         display: inline-block;
         position: relative;
     
-        &:hover {
-            cursor: pointer;
-        }
     }
 
     &__empty {
@@ -80,26 +80,41 @@ h3 {
         align-items: center;
     }
 
+    & button {
+        width: 85px;
+        height: 35px;
+        background-size: 100%;
+        border: none;
+    }
+
+    &__again {
+        background-image: url(./images/play-again.png);
+    }
+
+    &__roll {
+        background-image: url(./images/roll-dices.png)
+    }
 }
 
 td {
-    border-right: 2px solid black;
+    border-right: 1px solid grey;
     padding: 1px;
 
     &:first-child {
         width: 10%;
-        border-right: 2px solid red;
-        border-left: 2px solid black;
+        border-right: 1px solid #ff0000aa;
+        border-left: 1px solid grey;
     }
 }
 
 .locked {
-    border: 5px solid #001193;
-    border-radius: 17px;
+    opacity: 0.6;
+    border: 3px solid #001193;
+    border-radius: 12px;
 }
 
 .crossed-out {
-    text-decoration: line-through #001193 3px;
+    text-decoration: line-through #001193 2px;
 }
 
 input {
@@ -109,7 +124,7 @@ input {
 [type=checkbox]:checked + span:before {
     content: '\2714';
     position: absolute;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #001193;
     top: -7px;
     left: 0;
@@ -137,17 +152,26 @@ input {
 }
 
 .start__game {
+    background-image: url(./images/Start.png);
+    background-size: 100%;
+    border: none;
     position: absolute;
     top: 70%;
-    left: 36%;
-    padding: 6% 12%;
+    left: 32%;
+    padding: 10% 20%;
 }
 
-.again {
-    padding: 8px 10px;
-    background-color: #9f0000;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    box-shadow:-1px 1px 5px #4f4f4f;
+
+.shaking {
+    animation: tilt-shaking 0.15s;
 }
+
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(8deg); }
+    30% { transform: rotate(0eg); }
+    45% { transform: rotate(-8deg); }
+    60% { transform: rotate(0eg); }
+    75% { transform: rotate(8deg); }
+    100% { transform: rotate(0deg); }
+  }

@@ -10,28 +10,27 @@ let rolledDices = [];
 let rollsLeft = 3;
 let sum = 0;
 
-
 const rollDice = (dice) => {
     const rollNumber = Math.floor(Math.random() * 6) + 1;
     
     switch (rollNumber) {
         case 1:
-            dice.src = "./images/dice-1.svg";
+            dice.src = "./images/dice-1.png";
             break;
         case 2:
-            dice.src = "./images/dice-2.svg";
+            dice.src = "./images/dice-2.png";
             break;
         case 3:
-            dice.src = "./images/dice-3.svg";
+            dice.src = "./images/dice-3.png";
             break;
         case 4:
-            dice.src = "./images/dice-4.svg";
+            dice.src = "./images/dice-4.png";
             break;
         case 5:
-            dice.src = "./images/dice-5.svg";
+            dice.src = "./images/dice-5.png";
             break;
         case 6:
-            dice.src = "./images/dice-6.svg";
+            dice.src = "./images/dice-6.png";
             break;
     }
 
@@ -62,6 +61,8 @@ const rollAllDices = () => {
     dices.forEach(dice => {
         if (dice.classList != "locked" && rollsLeft > 0) {
             rollDice(dice);
+            dice.classList.add("shaking");
+            setTimeout(() => {dice.classList.remove("shaking")},200)
         }
     });
     if (rollsLeft > 0){
@@ -75,12 +76,6 @@ dices.forEach(dice => {
     dice.addEventListener("click", e => {
         e.target.classList.toggle("locked");
     })
-})
-
-window.addEventListener("keydown", e => {
-    if (e.key === "Enter") {
-        rollAllDices()
-    }
 })
 
 const checkSum = (number) => {
@@ -242,7 +237,7 @@ const grandTotal = () => {
     document.querySelector(".grand-score").textContent = totalUp + totalLow;
 }
 
-document.querySelector(".again").addEventListener("click", () => {
+document.querySelector(".game__again").addEventListener("click", () => {
     checkboxes.forEach(checkbox => {
         if (checkbox.checked) {
             checkbox.disabled = false;
@@ -259,4 +254,15 @@ document.querySelector(".start__game").addEventListener("click", () => {
     document.querySelector(".game").classList.remove("hidden");
     document.querySelector(".start").classList.add("hidden");
     rollAllDices();
+})
+
+document.querySelector(".game__roll").addEventListener("click", () => {
+    rollAllDices();
+})
+
+window.addEventListener("keyup", e => {
+    if (e.key === "Enter") {
+        rollAllDices();
+        console.log(rollsLeft)
+    }
 })
