@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Oooh+Baby&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Dancing+Script&family=Oooh+Baby&display=swap');
 
 
 $font-score: 'Oooh Baby', cursive;
-$font-second: 'Caveat', cursive;
+$font-instruction: 'Dancing Script', cursive;
+
+
 * {
     margin: 0;
     padding: 0;
@@ -25,8 +27,13 @@ h3 {
 }
 .game__dices img:hover,
 span:hover,
-button:hover {
+button:hover{
     cursor: pointer;
+}
+
+.choice-name,
+.choice-name .instruction {
+    cursor: help;
 }
 
 .game {
@@ -94,6 +101,17 @@ button:hover {
     &__roll {
         background-image: url(./images/roll-dices.png)
     }
+
+    &__score-pad .instruction {
+        height: 100%;
+        width: 100%;
+        border: none;
+        display: inline;
+        font-size: 0.9rem;
+        font-family: $font-instruction;
+        color: #001193;
+    }
+    
 }
 
 td {

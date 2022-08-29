@@ -266,3 +266,17 @@ window.addEventListener("keyup", e => {
         console.log(rollsLeft)
     }
 })
+
+document.querySelectorAll(".choice-name").forEach(choice => {
+    choice.addEventListener("click", e => {
+        if (e.target.firstElementChild) {
+            e.target.firstElementChild.classList.toggle("hidden");
+        }
+    });
+})
+
+document.querySelectorAll(".instruction").forEach(instruction => {
+    instruction.addEventListener("click", e => {
+        e.target.classList.add("hidden");
+    });
+});

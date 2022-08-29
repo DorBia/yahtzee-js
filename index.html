@@ -21,11 +21,11 @@
         </section>
         
         <div class="game__dices">
-            <img src="./images/dice-3.svg" alt="dice1">
-            <img src="./images/dice-3.svg" alt="dice2">
-            <img src="./images/dice-3.svg" alt="dice3">
-            <img src="./images/dice-2.svg" alt="dice4">
-            <img src="./images/dice-2.svg" alt="dice5">
+            <img src="" alt="dice1">
+            <img src="" alt="dice2">
+            <img src="" alt="dice3">
+            <img src="" alt="dice4">
+            <img src="" alt="dice5">
         </div>
         <div class="game__scoring">
             <table class="game__score-pad">
@@ -38,42 +38,42 @@
                     <td><label><input type='checkbox' class="check" value="aces">
                         <span></span>
                     </label></td>
-                    <td>Aces</td>
+                    <td class="choice-name">Aces <span class="instruction hidden">(count and add only aces)</span></td>
                     <td class="upper-section-points points"></td>
                 </tr>
                 <tr>
                     <td><label><input type='checkbox' class="check" value="twos">
                         <span></span>
                     </label></td>
-                    <td>Twos</td>
+                    <td class="choice-name">Twos <span class="instruction hidden">(count and add only twos)</span></td>
                     <td class="upper-section-points points"></td>
                 </tr>
                 <tr>
                     <td><label><input type='checkbox' class="check" value="threes">
                         <span></span>
                     </label></td>
-                    <td>Threes</td>
+                    <td class="choice-name">Threes <span class="instruction hidden">(count and add only threes)</span></td>
                     <td class="upper-section-points points"></td>
                 </tr>
                 <tr>
                     <td><label><input type='checkbox' class="check" value="fours">
                         <span></span>
                     </label></td>
-                    <td>Fours</td>
+                    <td class="choice-name">Fours <span class="instruction hidden">(count and add only fours)</span></td>
                     <td class="upper-section-points points"></td>
                 </tr>
                 <tr>
                     <td><label><input type='checkbox' class="check" value="fives">
                         <span></span>
                     </label></td>
-                    <td>Fives</td>
+                    <td class="choice-name">Fives <span class="instruction hidden">(count and add only fives)</span></td>
                     <td class="upper-section-points points"></td>
                 </tr>
                 <tr>
                     <td><label><input type='checkbox' class="check" value="sixes">
                         <span></span>
                     </label></td>
-                    <td>Sixes</td>
+                    <td class="choice-name">Sixes <span class="instruction hidden">(count and add only sixes)</span></td>
                     <td class="upper-section-points points"></td>
                 </tr>
                 <tr>
@@ -83,12 +83,12 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td>Bonus</td>
+                    <td class="choice-name">Bonus <span class="instruction hidden">(35 points if total >= 63)</span></td>
                     <td class="upper-section-bonus points"></td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td>Total Score</td>
+                    <td class="choice-name">Total Score <span class="instruction hidden">(total of upper section)</span></td>
                     <td class="upper-section total-score-upper points"></td>
                 </tr>
                 <tr>
@@ -100,54 +100,54 @@
                     <td><label><input type='checkbox' class="check" value="threeAKind">
                         <span></span>
                     </label></td>
-                    <td>3 of a kind</td>
+                    <td class="choice-name">3 of a kind <span class="instruction hidden">(add total of all dices)</span></td>
                     <td class="lower-section-points points"></td>
                 </tr>
                 <tr>
                     <td><label><input type='checkbox' class="check" value="fourAKind">
                         <span></span>
                     </label></td>
-                    <td>4 of a kind</td>
+                    <td class="choice-name">4 of a kind <span class="instruction hidden">(add total of all dices)</span></td>
                     <td class="lower-section-points points"></td>
                 </tr>
                 <tr>
                     <td><label><input type='checkbox' class="check" value="fullHouse">
                         <span></span>
                     </label></td>
-                    <td>Full House</td>
+                    <td class="choice-name">Full House <span class="instruction hidden">(25 points if 3 and 2 of a kind)</span></td>
                     <td class="lower-section-points points"></td>
                 </tr>
                 <tr>
                     <td><label><input type='checkbox' class="check" value="smStraight">
                         <span></span>
                     </label></td>
-                    <td>Small Straight</td>
+                    <td class="choice-name">Small Straight <span class="instruction hidden">(30 points if sequence of 4)</span></td>
                     <td class="lower-section-points points"></td>
                 </tr>
                 <tr>
                     <td><label><input type='checkbox' class="check" value="lgStraight">
                         <span></span>
                     </label></td>
-                    <td>Large Straight</td>
+                    <td class="choice-name">Large Straight <span class="instruction hidden">(30 points if sequence of 5)</span></td>
                     <td class="lower-section-points points"></td>
                 </tr>
                 <tr>
                     <td><label><input type='checkbox' class="check" value="yahtzee">
                         <span></span>
                     </label></td>
-                    <td>YAHTZEE</td>
+                    <td class="choice-name">YAHTZEE <span class="instruction hidden">(25 points if 5 of a kind)</span></td>
                     <td class="lower-section-points points"></td>
                 </tr>
                 <tr>
                     <td><label><input type='checkbox' class="check" value="chance">
                         <span></span>
                     </label></td>
-                    <td>Chance</td>
+                    <td class="choice-name">Chance <span class="instruction hidden">(total of 5 dices)</span></td>
                     <td class="lower-section-points points"></td>
                 </tr>
                 <tr>
                     <td> </td>
-                    <td>Total</td>
+                    <td class="choice-name">Total <span class="instruction hidden">(total of lower section)</span></td>
                     <td class="lower-section-total points"></td>
                 </tr>
                 <tr>
