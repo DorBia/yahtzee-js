@@ -267,7 +267,7 @@ document.querySelector(".game__again").addEventListener("click", () => {
 })
 
 document.querySelector(".start__game").addEventListener("click", () => {
-    document.querySelector("body").classList.remove("paper")
+    document.querySelector("body").classList.remove("paper");
     document.querySelector(".game").classList.remove("hidden");
     document.querySelector(".start").classList.add("hidden");
     rollAllDices();
@@ -294,3 +294,14 @@ document.querySelectorAll(".instruction").forEach(instruction => {
         e.target.classList.add("hidden");
     });
 });
+
+document.querySelector(".start__how").addEventListener("click", () => {
+    document.querySelector(".how-to-play").classList.remove("hidden");
+    document.querySelector(".start").classList.add("hidden");
+
+});
+
+document.querySelector(".ok").addEventListener("click", () => {
+    document.querySelector(".start").classList.remove("hidden");
+    document.querySelector(".how-to-play").classList.add("hidden");
+})

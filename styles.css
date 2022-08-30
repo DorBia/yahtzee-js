@@ -26,7 +26,9 @@ h3 {
 .game__dices img:hover,
 span:hover,
 button:hover,
-.start__game:hover {
+.start__game:hover,
+.start__how:hover,
+.ok:hover {
   cursor: pointer;
 }
 
@@ -155,19 +157,49 @@ input {
   width: 100vw;
   max-width: 640px;
   margin: auto;
+  margin-top: 30px;
 }
 
 .start__game {
-  background-size: 100%;
-  border: none;
   position: absolute;
-  top: 70%;
+  top: 60%;
+  left: 32%;
+  width: 40%;
+}
+
+.start__how {
+  position: absolute;
+  top: 75%;
   left: 32%;
   width: 40%;
 }
 
 .shaking {
   animation: tilt-shaking 0.15s;
+}
+
+.how-to-play {
+  background-image: url(./images/bg-how.png);
+  height: 100%;
+  text-align: center;
+  padding: 10%;
+  position: relative;
+  max-width: 640px;
+  margin: auto;
+}
+.how-to-play h2 {
+  padding: 10px;
+  font-size: 2.2rem;
+  color: #ff0000;
+}
+.how-to-play p {
+  margin: 10px;
+  font-family: "Caveat", cursive;
+  font-size: 1.3rem;
+}
+.how-to-play .ok {
+  margin: 20px;
+  width: 50%;
 }
 
 @keyframes tilt-shaking {
@@ -215,5 +247,10 @@ input {
   }
   .game__score-pad .instruction {
     font-size: 1.2rem;
+  }
+}
+@media screen and (orientation: landscape) {
+  .start {
+    height: 100%;
   }
 }
