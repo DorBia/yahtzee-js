@@ -9,6 +9,7 @@ const choicesTotalLower = document.querySelector(".lower-section-total")
 let rolledDices = [];
 let rollsLeft = 3;
 let sum = 0;
+let round = 1;
 
 const rollDice = (dice) => {
     const rollNumber = Math.floor(Math.random() * 6) + 1;
@@ -141,6 +142,15 @@ const checkChance = () => {
     sum = rolledDices.reduce((a, b) => a + b);
 }
 
+const checkEnd = () => {
+    let end = false
+    if (round === 13){
+        alert(`Your score was ${document.querySelector(".grand-score").textContent}`);
+        end = true;
+    }
+    return end;
+}
+
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener("change", e => {
         sum = 0;
@@ -191,12 +201,16 @@ checkboxes.forEach(checkbox => {
         td.nextElementSibling.classList.add("crossed-out");
         e.target.disabled = true;
         grandTotal();
-        rollsLeft = 3;
 
-        dices.forEach(dice => {
-            dice.classList.remove("locked");
-        })
-        rollAllDices();
+        if(!checkEnd()) {
+            rollsLeft = 3;
+
+            dices.forEach(dice => {
+                dice.classList.remove("locked");
+            });
+            round++;
+            rollAllDices();
+        }
     });
 })
 
@@ -245,8 +259,10 @@ document.querySelector(".game__again").addEventListener("click", () => {
         }
     });
     document.querySelectorAll(".points").forEach(p => p.innerHTML = "");
-    document.querySelectorAll("td").forEach(p => p.classList.remove("crossed-out"))
+    document.querySelectorAll("td").forEach(p => p.classList.remove("crossed-out"));
+    dices.forEach(dice => dice.classList.remove("locked"));
     rollsLeft = 3;
+    round = 1;
     rollAllDices();
 })
 
@@ -257,14 +273,11 @@ document.querySelector(".start__game").addEventListener("click", () => {
     rollAllDices();
 })
 
-document.querySelector(".game__roll").addEventListener("click", () => {
-    rollAllDices();
-})
+document.querySelector(".game__roll").addEventListener("click", rollAllDices)
 
 window.addEventListener("keyup", e => {
     if (e.key === "Enter") {
         rollAllDices();
-        console.log(rollsLeft)
     }
 })
 
