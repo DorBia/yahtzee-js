@@ -145,7 +145,8 @@ const checkChance = () => {
 const checkEnd = () => {
     let end = false
     if (round === 13){
-        alert(`Your score was ${document.querySelector(".grand-score").textContent}`);
+        document.querySelector("#score").innerHTML = `Your score was: ${document.querySelector(".grand-score").textContent}`
+        document.querySelector(".popup-container").style.display = "block";
         end = true;
     }
     return end;
@@ -304,4 +305,9 @@ document.querySelector(".start__how").addEventListener("click", () => {
 document.querySelector(".ok").addEventListener("click", () => {
     document.querySelector(".start").classList.remove("hidden");
     document.querySelector(".how-to-play").classList.add("hidden");
+})
+
+document.querySelector(".pop-up__ok").addEventListener("click", () => {
+    document.querySelector(".popup-container").style.display = "none";
+
 })

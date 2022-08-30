@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body class="paper">
+
     <div class="start">
         <img src="./images/yahtzee.png" alt="background" id="background-img">
         <img class="start__game" src="./images/Start.png">
@@ -31,10 +32,21 @@
             as it may change after the second roll. After the second roll you may stop and score yourself or roll again.
         </p>
         <p>Third Roll: Again, you may roll any or all of the five dice. After this roll you must score yourself or mark a zero. After marking your score, your turn is over, and play moves left.</p>
+        <h2>Scoring</h2>
+        <p>For detailed scoring information -> <a href="http://yahtzee-rules.com/">CLICK HERE</a> (no Second Yahtzee Bonus Rules or Yahtzee Yoker).<p>
+        <p>For general idea or as a reminder on how to score - click on the name of the choice.</p>
         <img src="./images/ok.png" alt="" class="ok">
     </div>
 
     <div class="game hidden">
+        <div class="popup-container">
+            <div class="pop-up">
+                <h1 id="score">Your score was 83</h1>
+                <img src="./images/ok.png" alt="ok" class="pop-up__ok">
+            </div>
+    
+        </div>
+
         <section class="game__top">
             <button class="game__roll"> </button>
             <h3 class="game__rolls">Rolls left: 3</h3>
@@ -178,7 +190,6 @@
                 </tr>
         </div>
     </div>
-
 
     <script src="./script.js"></script>
 </body>
