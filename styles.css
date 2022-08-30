@@ -11,9 +11,11 @@ body {
   font-size: 1.1rem;
 }
 
+.paper {
+  background-image: url(./images/blur-bg.png);
+}
+
 .points {
-  font-family: "Oooh Baby", cursive;
-  font-size: 1.1rem;
   color: #001193;
 }
 
@@ -23,7 +25,8 @@ h3 {
 
 .game__dices img:hover,
 span:hover,
-button:hover {
+button:hover,
+.start__game:hover {
   cursor: pointer;
 }
 
@@ -32,9 +35,15 @@ button:hover {
   cursor: help;
 }
 
+.game {
+  height: 100%;
+  width: 100%;
+  max-width: 640px;
+  margin: auto;
+}
 .game__score-pad {
   height: 80vh;
-  width: 95vw;
+  width: 95%;
   text-align: center;
   margin: auto;
 }
@@ -45,7 +54,7 @@ button:hover {
   margin: 15px auto;
 }
 .game__score-pad td, .game__score-pad th {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #8080808b;
 }
 .game__dices img {
   height: 50px;
@@ -53,7 +62,7 @@ button:hover {
 .game__score-pad span {
   height: 12px;
   width: 12px;
-  border: 1px solid grey;
+  border: 1px solid #8080808b;
   border-radius: 4px;
   display: inline-block;
   position: relative;
@@ -95,13 +104,13 @@ button:hover {
 }
 
 td {
-  border-right: 1px solid grey;
+  border-right: 1px solid #8080808b;
   padding: 1px;
 }
 td:first-child {
   width: 10%;
-  border-right: 1px solid #ff0000aa;
-  border-left: 1px solid grey;
+  border-right: 1px solid #ff00006b;
+  border-left: 1px solid #8080808b;
 }
 
 .locked {
@@ -149,13 +158,12 @@ input {
 }
 
 .start__game {
-  background-image: url(./images/Start.png);
   background-size: 100%;
   border: none;
   position: absolute;
   top: 70%;
   left: 32%;
-  padding: 10% 20%;
+  width: 40%;
 }
 
 .shaking {
@@ -183,5 +191,29 @@ input {
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+@media screen and (min-width: 500px) and (min-height: 900px) {
+  body {
+    font-family: "Caveat", cursive;
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.7rem;
+  }
+
+  .game__dices img {
+    height: 60px;
+  }
+  .game__top {
+    height: 7vh;
+  }
+  .game button {
+    width: 113px;
+    height: 47px;
+  }
+  .game__score-pad .instruction {
+    font-size: 1.2rem;
   }
 }

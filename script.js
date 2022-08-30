@@ -251,6 +251,7 @@ document.querySelector(".game__again").addEventListener("click", () => {
 })
 
 document.querySelector(".start__game").addEventListener("click", () => {
+    document.querySelector("body").classList.remove("paper")
     document.querySelector(".game").classList.remove("hidden");
     document.querySelector(".start").classList.add("hidden");
     rollAllDices();
