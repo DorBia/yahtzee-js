@@ -280,7 +280,15 @@ input {
   }
 }
 @media screen and (orientation: landscape) {
-  .start {
-    height: 100%;
+  .start__game {
+    top: 75%;
+    left: 25%;
+    width: 20%;
+  }
+
+  .start__how {
+    top: 75%;
+    left: 55%;
+    width: 20%;
   }
 }
