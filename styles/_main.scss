@@ -1,0 +1,37 @@
+@use "./variables" as *;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $color-background;
+    font-family: $font-primary;
+    font-size: 1.1rem;
+}
+
+.paper {
+    background-image: url(./images/blur-bg.png)
+}
+
+.points {
+    color: $color-pen;
+}
+
+h3 {
+    margin: 5px;
+}
+
+img, span, button {
+    cursor: pointer;
+}
+
+.game__choice,
+.game__choice * {
+    cursor: help;
+}
+
+.hidden {
+    display: none !important;
+}

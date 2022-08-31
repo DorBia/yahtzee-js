@@ -23,15 +23,17 @@ h3 {
   margin: 5px;
 }
 
-img:hover,
-span:hover,
-button:hover {
+img, span, button {
   cursor: pointer;
 }
 
-.choice-name,
-.choice-name .instruction {
+.game__choice,
+.game__choice * {
   cursor: help;
+}
+
+.hidden {
+  display: none !important;
 }
 
 .game {
@@ -46,7 +48,7 @@ button:hover {
   text-align: center;
   margin: auto;
 }
-.game__dices {
+.game__dice {
   display: flex;
   justify-content: space-around;
   width: 95%;
@@ -55,7 +57,7 @@ button:hover {
 .game__score-pad td, .game__score-pad th {
   border-bottom: 1px solid #8080808b;
 }
-.game__dices img {
+.game__dice img {
   height: 50px;
 }
 .game__score-pad span {
@@ -90,7 +92,7 @@ button:hover {
   background-image: url(./images/play-again.png);
 }
 .game__roll {
-  background-image: url(./images/roll-dices.png);
+  background-image: url(./images/roll-dice.png);
 }
 .game__score-pad .instruction {
   height: 100%;
@@ -112,16 +114,6 @@ td:first-child {
   border-left: 1px solid #8080808b;
 }
 
-.locked {
-  opacity: 0.6;
-  border: 3px solid #001193;
-  border-radius: 12px;
-}
-
-.crossed-out {
-  text-decoration: line-through #001193 2px;
-}
-
 input {
   display: none;
 }
@@ -135,103 +127,20 @@ input {
   left: 0;
 }
 
-.hidden {
-  display: none !important;
+.locked {
+  opacity: 0.6;
+  border: 3px solid #001193;
+  border-radius: 12px;
 }
 
-#background-img {
-  max-width: 100%;
-  max-height: 100%;
-  margin: auto;
-  cursor: default;
-}
-
-.start {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  height: 100vh;
-  max-height: 1080px;
-  width: 100vw;
-  max-width: 640px;
-  margin: auto;
-}
-
-.start__game {
-  position: absolute;
-  top: 60%;
-  left: 32%;
-  width: 40%;
-}
-
-.start__how {
-  position: absolute;
-  top: 75%;
-  left: 32%;
-  width: 40%;
+.crossed-out {
+  text-decoration: line-through #001193 2px;
 }
 
 .shaking {
   animation: tilt-shaking 0.15s;
 }
 
-.how-to-play {
-  background-image: url(./images/bg-how.png);
-  height: 100%;
-  text-align: center;
-  padding: 10%;
-  position: relative;
-  max-width: 640px;
-  margin: auto;
-}
-.how-to-play h2 {
-  padding: 10px;
-  font-size: 2.2rem;
-  color: #ff0000;
-}
-.how-to-play p {
-  margin: 10px;
-  font-family: "Caveat", cursive;
-  font-size: 1.3rem;
-}
-.how-to-play .ok {
-  margin: 20px;
-  width: 50%;
-}
-
-.popup-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  display: none;
-}
-
-.pop-up {
-  background-image: url(./images/popup-bg.png);
-  position: absolute;
-  top: -350px;
-  width: 50%;
-  max-width: 320px;
-  max-height: 250px;
-  left: 15%;
-  text-align: center;
-  padding: 8%;
-  animation: drop 0.5s ease forwards;
-}
-.pop-up img {
-  padding: 20px;
-  width: 50%;
-}
-
-@keyframes drop {
-  80% {
-    transform: translateY(600px);
-  }
-  100% {
-    transform: translateY(550px);
-  }
-}
 @keyframes tilt-shaking {
   0% {
     transform: rotate(0deg);
@@ -253,6 +162,92 @@ input {
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+.start {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+  max-height: 1080px;
+  width: 100vw;
+  max-width: 640px;
+  margin: auto;
+}
+.start__background {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  cursor: default;
+}
+.start__button {
+  position: absolute;
+  top: 60%;
+  left: 32%;
+  width: 40%;
+}
+.start__how {
+  position: absolute;
+  top: 75%;
+  left: 32%;
+  width: 40%;
+}
+
+.how-to-play {
+  background-image: url(./images/bg-how.png);
+  height: 100%;
+  text-align: center;
+  padding: 10%;
+  position: relative;
+  max-width: 640px;
+  margin: auto;
+}
+.how-to-play h2 {
+  padding: 10px;
+  font-size: 2.2rem;
+  color: #ff0000;
+}
+.how-to-play p {
+  margin: 10px;
+  font-family: "Caveat", cursive;
+  font-size: 1.3rem;
+}
+.how-to-play__ok {
+  margin: 20px;
+  width: 50%;
+}
+
+.pop-up-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+}
+
+.pop-up {
+  background-image: url(./images/popup-bg.png);
+  position: absolute;
+  top: -350px;
+  width: 50%;
+  max-width: 320px;
+  max-height: 250px;
+  left: 15%;
+  text-align: center;
+  padding: 8%;
+  animation: drop 0.5s ease forwards;
+}
+.pop-up__ok {
+  padding: 20px;
+  width: 50%;
+}
+
+@keyframes drop {
+  80% {
+    transform: translateY(600px);
+  }
+  100% {
+    transform: translateY(550px);
   }
 }
 @media screen and (min-width: 500px) and (min-height: 900px) {
@@ -280,7 +275,7 @@ input {
   }
 }
 @media screen and (orientation: landscape) {
-  .start__game {
+  .start__button {
     top: 75%;
     left: 25%;
     width: 20%;

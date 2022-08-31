@@ -28,13 +28,13 @@ Nothing is needed to run the code, it's fully web based, all you need is just go
 
 ## 🎈 Usage <a name="usage"></a>
 - Main screen has 2 options - play and how to play section, choose either one, depending on your need, by just clicking on the button.
-- When in "play" section, dices will roll automatically on start, then either click on the "roll dices" or press "Enter" to reroll dices.
-- Those dices which you want to leave unchanged can be "locked" by clicking on them, small border will appear so you know that they are locked.
-- You have 3 rolls (2 rerolls), after that you need to click on one of the checkboxes to score the points, and roll dices.
-- You don't need to lock the dices to score them, they will be scored automatically.
+- When in "play" section, dice will roll automatically on start, then either click on the "roll dice" or press "Enter" to reroll dice.
+- Those dice which you want to leave unchanged can be "locked" by clicking on them, small border will appear so you know that they are locked.
+- You have 3 rolls (2 rerolls), after that you need to click on one of the checkboxes to score the points, and roll dice.
+- You don't need to lock the dice to score them, they will be scored automatically.
 - If you want to be reminded on how things are scored - click on the name of the thing you want to score, it will show the scoring condition next to it, click again to hide it.
-- If you want to play again, just press the play again button, game will uncheck everything, clear scores and roll dices.
-- After all options are chosen, you will get a popup with a score, which you can close by clicking "OK", then you can see your scores - to play again.
+- If you want to play again, just press the play again button, game will uncheck everything, clear scores and roll dice.
+- After all options are chosen, you will get a popup with a score, which you can close by clicking "OK", then you can see your scores.
 
 
 ## 🧮 Examples <a name = "examples"></a>

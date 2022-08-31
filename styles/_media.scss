@@ -1,0 +1,47 @@
+@use "./variables" as *;
+
+// media queries
+
+@media screen and (min-width: 500px) and (min-height: 900px){
+    body {
+        font-family: $font-secondary;
+        font-size: 1.6rem;
+    }
+    h3 {
+        font-size: 1.7rem;
+    }
+    
+    .game {
+        &__dices img {
+            height: 60px;
+        }
+
+        &__top {
+            height: 7vh;
+        }
+
+        & button {
+            width: 113px;
+            height: 47px;
+        }
+        
+        &__score-pad .instruction {
+            font-size: 1.2rem;
+        }
+    }
+    
+}
+
+@media screen and (orientation:landscape){
+    .start__button {
+        top: 75%;
+        left: 25%;
+        width: 20%;
+    }
+    
+    .start__how {
+        top: 75%;
+        left: 55%;
+        width: 20%;
+    }
+}

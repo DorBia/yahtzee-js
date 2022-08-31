@@ -1,0 +1,30 @@
+@use "./variables" as *;
+
+// how to play screen styling
+
+.how-to-play {
+    background-image: url(./images/bg-how.png);
+    height: 100%;
+    text-align: center;
+    padding: 10%;
+    position: relative;
+    max-width: 640px;
+    margin: auto;
+
+    & h2 {
+        padding: 10px;
+        font-size: 2.2rem;
+        color: #ff0000;
+    }
+
+    & p {
+        margin: 10px;
+        font-family: $font-secondary;
+        font-size: 1.3rem;
+    }
+
+    &__ok {
+        margin: 20px;
+        width: 50%;
+    }
+}

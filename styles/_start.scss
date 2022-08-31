@@ -1,0 +1,35 @@
+@use "./variables" as *;
+
+// starting screen styling
+
+.start {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100vh;
+    max-height: 1080px;
+    width: 100vw;
+    max-width: 640px;
+    margin: auto;
+
+    &__background {
+        max-width: 100%;
+        max-height: 100%;
+        margin: auto;
+        cursor: default;
+    }
+
+    &__button {
+        position: absolute;
+        top: 60%;
+        left: 32%;
+        width: 40%;
+    }
+    
+    &__how {
+        position: absolute;
+        top: 75%;
+        left: 32%;
+        width: 40%;
+    }
+}

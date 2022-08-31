@@ -1,4 +1,4 @@
-const dices = document.querySelectorAll(".game__dices img")
+const dice = document.querySelectorAll(".game__dice img")
 const checkboxes = document.querySelectorAll(".check")
 const pointsUpper = document.querySelectorAll(".upper-section-points")
 const choicesTotalUpper = document.querySelector(".upper-section-total")
@@ -6,155 +6,168 @@ const upperBonus = document.querySelector(".upper-section-bonus")
 const pointsLower = document.querySelectorAll(".lower-section-points")
 const choicesTotalLower = document.querySelector(".lower-section-total")
 
-let rolledDices = [];
+
+/* ------- VARIABLES ------ */
+
+let rolledDice = [];
 let rollsLeft = 3;
 let sum = 0;
 let round = 1;
 
-const rollDice = (dice) => {
+/* --- everything related to dice rolling and returning them to the array --- */
+
+const rollDie = (die) => {
     const rollNumber = Math.floor(Math.random() * 6) + 1;
     
     switch (rollNumber) {
         case 1:
-            dice.src = "./images/dice-1.png";
+            die.src = "./images/die-1.png";
             break;
         case 2:
-            dice.src = "./images/dice-2.png";
+            die.src = "./images/die-2.png";
             break;
         case 3:
-            dice.src = "./images/dice-3.png";
+            die.src = "./images/die-3.png";
             break;
         case 4:
-            dice.src = "./images/dice-4.png";
+            die.src = "./images/die-4.png";
             break;
         case 5:
-            dice.src = "./images/dice-5.png";
+            die.src = "./images/die-5.png";
             break;
         case 6:
-            dice.src = "./images/dice-6.png";
+            die.src = "./images/die-6.png";
             break;
     }
-
     return rollNumber;
 }
 
-const checkDices = () => {
-    rolledDices = [];
-    dices.forEach(dice => {
-        if (dice.src.includes("dice-1")){
-            rolledDices.push(1);
-        } else if (dice.src.includes("dice-2")){
-            rolledDices.push(2);
-        } else if (dice.src.includes("dice-3")){
-            rolledDices.push(3);
-        } else if (dice.src.includes("dice-4")){
-            rolledDices.push(4);
-        } else if (dice.src.includes("dice-5")) {
-            rolledDices.push(5);
-        } else if (dice.src.includes("dice-6")) {
-            rolledDices.push(6);
-        }
-
-    });
-}
-
-const rollAllDices = () => {
-    dices.forEach(dice => {
-        if (dice.classList != "locked" && rollsLeft > 0) {
-            rollDice(dice);
-            dice.classList.add("shaking");
-            setTimeout(() => {dice.classList.remove("shaking")},200)
+const rollDice = () => {
+    dice.forEach(die => {
+        if (die.classList != "locked" && rollsLeft > 0) {
+            rollDie(die);
+            die.classList.add("shaking");
+            setTimeout(() => {die.classList.remove("shaking")},200)
         }
     });
     if (rollsLeft > 0){
         rollsLeft--;
     }
-    document.querySelector(".game__rolls").innerHTML = `Rolls left: ${rollsLeft}`
+    document.querySelector(".game__rolls-left").innerHTML = `Rolls left: ${rollsLeft}`
 }
 
-dices.forEach(dice => {
-    // console.log(dice)
-    dice.addEventListener("click", e => {
+const checkDiceValues = () => {
+    rolledDice = [];
+    dice.forEach(die => {
+        if (die.src.includes("die-1")){
+            rolledDice.push(1);
+        } else if (die.src.includes("die-2")){
+            rolledDice.push(2);
+        } else if (die.src.includes("die-3")){
+            rolledDice.push(3);
+        } else if (die.src.includes("die-4")){
+            rolledDice.push(4);
+        } else if (die.src.includes("die-5")) {
+            rolledDice.push(5);
+        } else if (die.src.includes("die-6")) {
+            rolledDice.push(6);
+        }
+    });
+}
+
+dice.forEach(die => {
+    die.addEventListener("click", e => {
         e.target.classList.toggle("locked");
     })
 })
 
+/* --- everything related to the scoring choices --- */
+// sum up aces - sixes
 const checkSum = (number) => {
-    checkDices();
-    rolledDices.forEach(dice => {
-        if(dice === number) {
-            sum += dice;
+    rolledDice.forEach(die => {
+        if(die === number) {
+            sum += die;
         }
     })
 }
 
-const sameInArray = (value) => {
-    return rolledDices.reduce((a, b) => a + (b === value), 0);
+// return a value of the same die for checking the same kind, full house and yahtzee
+const checkAmountOfTheSameValue = (value) => {
+    return rolledDice.reduce((a, b) => a + (b === value), 0);
 }
 
+// sum all dice if at least 3/4 are the same
 const checkAKind = (number) => {
-    checkDices()
-    rolledDices.forEach(dice => {
-        if (sameInArray(dice) >= number){
-            sum = rolledDices.reduce((a, b) => a + b);
+    rolledDice.forEach(die => {
+        if (checkAmountOfTheSameValue(die) >= number){
+            sum = rolledDice.reduce((a, b) => a + b);
         };
     })
 }
 
+// sum = 25 if 3 dice have one value and 2 dice have second value
 const checkFull = () => {
-    checkDices()
     let same = [];
-    rolledDices.forEach(dice => same.push(sameInArray(dice)));
+    rolledDice.forEach(die => same.push(checkAmountOfTheSameValue(die)));
     if (same.includes(2) && same.includes(3)){
         sum = 25;
     }
 }
 
+// sum = 30 if at least 4 dice in sequence
 const checkSmallStraight = () => {
-    checkDices();
     arr = [1,2,3,4]
     arr2 = [2,3,4,5]
     arr3 = [3,4,5,6]
 
-    if(arr.every(dice => rolledDices.includes(dice)) || arr2.every(dice => rolledDices.includes(dice)) || arr3.every(dice => rolledDices.includes(dice))){
+    if(arr.every(die => rolledDice.includes(die)) 
+        || arr2.every(die => rolledDice.includes(die)) 
+        || arr3.every(die => rolledDice.includes(die))){
         sum = 30;
     }
 }
 
+// sum = 40 if all dice in sequence
 const checkLargeStraight = () => {
-    checkDices();
     arr = [1,2,3,4,5]
     arr2 = [2,3,4,5,6]
-    if(arr.every(dice => rolledDices.includes(dice)) || arr2.every(dice => rolledDices.includes(dice))){
+    if(arr.every(die => rolledDice.includes(die)) 
+        || arr2.every(die => rolledDice.includes(die))){
         sum = 40;
     }
 }
 
+// sum = 50 when all dice the same
 const checkYahtzee = () => {
-    checkDices();
-    if (sameInArray(rolledDices[0]) == 5){
+    if (checkAmountOfTheSameValue(rolledDice[0]) == 5){
         sum = 50;
     }
 }
 
+// sum all dice
 const checkChance = () => {
-    checkDices();
-    sum = rolledDices.reduce((a, b) => a + b);
+    sum = rolledDice.reduce((a, b) => a + b);
 }
 
+// check if the game has ended
 const checkEnd = () => {
-    let end = false
+    let end = false;
     if (round === 13){
-        document.querySelector("#score").innerHTML = `Your score was: ${document.querySelector(".grand-score").textContent}`
-        document.querySelector(".popup-container").style.display = "block";
+        document.querySelector(".pop-up__score").innerHTML = `Your score was: ${document.querySelector(".grand-score").textContent}`;
+        document.querySelector(".pop-up-container").style.display = "block";
         end = true;
     }
     return end;
 }
 
+// logic for what happens when checkbox is checked
+
+
+
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener("change", e => {
         sum = 0;
+        checkDiceValues();
         switch(e.target.value){
             case "aces":
                 checkSum(1)
@@ -194,8 +207,7 @@ checkboxes.forEach(checkbox => {
                 break;
             case "chance":
                 checkChance();
-                break;
-                
+                break; 
         }
         const td = e.target.parentNode.parentNode
         td.parentNode.lastElementChild.textContent = sum;
@@ -206,15 +218,16 @@ checkboxes.forEach(checkbox => {
         if(!checkEnd()) {
             rollsLeft = 3;
 
-            dices.forEach(dice => {
+            dice.forEach(dice => {
                 dice.classList.remove("locked");
             });
             round++;
-            rollAllDices();
+            rollDice();
         }
     });
 })
 
+// total points for each section without bonus
 const totalFromChoices = () => {
     let upperTotal = 0;
     pointsUpper.forEach(score => {
@@ -229,6 +242,7 @@ const totalFromChoices = () => {
     choicesTotalLower.textContent = lowerTotal;
 }
 
+// bonus for upper section
 const bonus = () => {
     if(Number(choicesTotalUpper.textContent) >= 63) {
         upperBonus.textContent = 35;
@@ -237,6 +251,7 @@ const bonus = () => {
     }
 }
 
+// upper section with bonus
 const totalUpper = () => {
     bonus();
     const total = Number(choicesTotalUpper.textContent) + Number(upperBonus.textContent)
@@ -244,12 +259,13 @@ const totalUpper = () => {
     return total;
 }
 
+// total of everything
 const grandTotal = () => {
     totalFromChoices();
     totalUpper();
     const totalUp = totalUpper()
-    const totalLow = Number(choicesTotalLower.textContent);
-    document.querySelector(".grand-score").textContent = totalUp + totalLow;
+    const totalLower = Number(choicesTotalLower.textContent);
+    document.querySelector(".grand-score").textContent = totalUp + totalLower;
 }
 
 document.querySelector(".game__again").addEventListener("click", () => {
@@ -261,28 +277,28 @@ document.querySelector(".game__again").addEventListener("click", () => {
     });
     document.querySelectorAll(".points").forEach(p => p.innerHTML = "");
     document.querySelectorAll("td").forEach(p => p.classList.remove("crossed-out"));
-    dices.forEach(dice => dice.classList.remove("locked"));
+    dice.forEach(die => die.classList.remove("locked"));
     rollsLeft = 3;
     round = 1;
-    rollAllDices();
+    rollDice();
 })
 
-document.querySelector(".start__game").addEventListener("click", () => {
+document.querySelector(".start__button").addEventListener("click", () => {
     document.querySelector("body").classList.remove("paper");
     document.querySelector(".game").classList.remove("hidden");
     document.querySelector(".start").classList.add("hidden");
-    rollAllDices();
+    rollDice();
 })
 
-document.querySelector(".game__roll").addEventListener("click", rollAllDices)
+document.querySelector(".game__roll").addEventListener("click", rollDice)
 
 window.addEventListener("keyup", e => {
     if (e.key === "Enter") {
-        rollAllDices();
+        rollDice();
     }
 })
 
-document.querySelectorAll(".choice-name").forEach(choice => {
+document.querySelectorAll(".game__choice").forEach(choice => {
     choice.addEventListener("click", e => {
         if (e.target.firstElementChild) {
             e.target.firstElementChild.classList.toggle("hidden");
@@ -302,12 +318,12 @@ document.querySelector(".start__how").addEventListener("click", () => {
 
 });
 
-document.querySelector(".ok").addEventListener("click", () => {
+document.querySelector(".how-to-play__ok").addEventListener("click", () => {
     document.querySelector(".start").classList.remove("hidden");
     document.querySelector(".how-to-play").classList.add("hidden");
 })
 
 document.querySelector(".pop-up__ok").addEventListener("click", () => {
-    document.querySelector(".popup-container").style.display = "none";
+    document.querySelector(".pop-up-container").style.display = "none";
 
 })

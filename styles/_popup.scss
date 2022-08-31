@@ -1,0 +1,38 @@
+@use "./variables" as *;
+
+// all pop-up styling
+
+.pop-up-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+}
+
+.pop-up {
+    background-image: url(./images/popup-bg.png);
+    position: absolute;
+    top: -350px;
+    width: 50%;
+    max-width: 320px;
+    max-height: 250px;
+    left: 15%;
+    text-align: center;
+    padding: 8%;
+    animation: drop 0.5s ease forwards;
+
+
+    &__ok {
+        padding: 20px;
+        width: 50%;
+    }
+}
+
+//animation
+
+@keyframes drop {
+    0% {}
+    80% { transform: translateY(600px); }
+    100% { transform: translateY(550px); }
+}

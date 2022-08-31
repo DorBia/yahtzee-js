@@ -1,0 +1,145 @@
+@use "./variables" as *;
+
+
+// game screen styling
+
+.game {
+
+    height: 100%;
+    width: 100%;
+    max-width: 640px;
+    margin: auto;
+
+    &__score-pad {
+        height: 80vh;
+        width: 95%;
+        text-align: center;
+        margin: auto;
+    }
+
+    &__dice {
+        display: flex;
+        justify-content: space-around;
+        width: 95%;
+        margin: 15px auto;
+    }
+
+    &__score-pad td, 
+    &__score-pad th {
+        border-bottom: $border-primary;
+    }
+
+    &__dice img {
+        height: 50px;
+    }
+
+    &__score-pad span {
+        height: 12px;
+        width: 12px;
+        border: $border-primary;
+        border-radius: 4px;
+        display: inline-block;
+        position: relative;
+    
+    }
+
+    &__empty {
+        border: none;
+        padding: 5px;
+    }
+    
+    &__empty:first-of-type {
+        border-right: none;
+        border-left: none;
+    }
+
+    &__top {
+        margin-top: 8px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    & button {
+        width: 85px;
+        height: 35px;
+        background-size: 100%;
+        border: none;
+    }
+
+    &__again {
+        background-image: url(./images/play-again.png);
+    }
+
+    &__roll {
+        background-image: url(./images/roll-dice.png)
+    }
+
+    &__score-pad .instruction {
+        height: 100%;
+        width: 100%;
+        border: none;
+        display: inline;
+        font-size: 0.9rem;
+        font-family: $font-instruction;
+        color: $color-pen;
+    }
+    
+}
+
+// score-pad styling added here to not override the empty one
+
+td {
+    border-right: $border-primary;
+    padding: 1px;
+
+    &:first-child {
+        width: 10%;
+        border-right: 1px solid #ff00006b;
+        border-left: $border-primary;
+    }
+}
+
+// checkboxes tick effect - styling the box for it in the main game section
+input {
+    display: none;
+}
+
+[type=checkbox]:checked + span:before {
+    content: '\2714';
+    position: absolute;
+    font-size: 1.2rem;
+    color: $color-pen;
+    top: -7px;
+    left: 0;
+}
+
+// locked die and crossing the name effects
+
+.locked {
+    opacity: 0.6;
+    border: 3px solid $color-pen;
+    border-radius: 12px;
+}
+
+.crossed-out {
+    text-decoration: line-through $color-pen 2px;
+}
+
+
+
+// animation for dice
+
+.shaking {
+    animation: tilt-shaking 0.15s;
+}
+
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(8deg); }
+    30% { transform: rotate(0eg); }
+    45% { transform: rotate(-8deg); }
+    60% { transform: rotate(0eg); }
+    75% { transform: rotate(8deg); }
+    100% { transform: rotate(0deg); }
+}
