@@ -37,7 +37,7 @@ Nothing is needed to run the code, it's fully web based, all you need is just go
 - After all options are chosen, you will get a popup with a score, which you can close by clicking "OK", then you can see your scores.
 
 
-## 🧮 Examples <a name = "examples"></a>
+## 🎲 Examples <a name = "examples"></a>
 ```
 Your roll = 5, 5, 5, 3, 3
 Choices:
