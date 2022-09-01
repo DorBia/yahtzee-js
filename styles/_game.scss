@@ -124,6 +124,7 @@ input {
 
 .crossed-out {
     text-decoration: line-through $color-pen 2px;
+    -webkit-text-decoration: line-through $color-pen 2px;
 }
 
 
