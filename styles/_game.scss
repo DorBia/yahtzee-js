@@ -123,8 +123,9 @@ input {
 }
 
 .crossed-out {
-    text-decoration: line-through $color-pen 2px;
-    -webkit-text-decoration: line-through $color-pen 2px;
+    text-decoration-line: line-through;
+    text-decoration-color: $color-pen;
+    text-decoration-thickness: 2px;
 }
 
 
