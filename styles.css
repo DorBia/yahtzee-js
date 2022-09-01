@@ -135,6 +135,9 @@ input {
 
 .crossed-out {
   text-decoration: line-through #001193 2px;
+  text-decoration-line: line-through;
+  text-decoration-color: #001193;
+  text-decoration-thickness: 2px;
 }
 
 .shaking {
