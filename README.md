@@ -63,10 +63,11 @@ Chance - 15 points (1+2+3+4+5)
 
 ## 📸 Screenshots <a name = "screenshots"></a>
 
-<img width=300px src="./screenshots/main-screen.png" alt="main screen">
-<img width=300px src="./screenshots/how-to-play.png" alt="how to play screen">
 <img width=300px src="./screenshots/scoring-small-screen.png" alt="scoring mobile">
 <img width=300px src="./screenshots/scoring-bigger-screen.png" alt="scoring desktop">
+<img width=300px src="./screenshots/main-screen.png" alt="main screen">
+<img width=300px src="./screenshots/how-to-play.png" alt="how to play screen">
+
 
 
 ## ⛏️ Built Using <a name = "built_using"></a>
