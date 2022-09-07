@@ -72,21 +72,7 @@ const rollDice = () => {
 
 const checkDiceValues = () => {
     rolledDice = [];
-    dice.forEach(die => {
-        if (die.src.includes("die-1")) {
-            rolledDice.push(1);
-        } else if (die.src.includes("die-2")) {
-            rolledDice.push(2);
-        } else if (die.src.includes("die-3")) {
-            rolledDice.push(3);
-        } else if (die.src.includes("die-4")) {
-            rolledDice.push(4);
-        } else if (die.src.includes("die-5")) {
-            rolledDice.push(5);
-        } else if (die.src.includes("die-6")) {
-            rolledDice.push(6);
-        }
-    });
+    dice.forEach(die => rolledDice.push(Number(die.src[die.src.length-5])));
 }
 
 dice.forEach(die => die.addEventListener("click", e => e.target.classList.toggle("locked")));
